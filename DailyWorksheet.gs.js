@@ -29,7 +29,7 @@ function onOpen(e) {
     monthlySheet = ss.insertSheet(sheetName, 0); // Create new sheet if doesn't exists
   } 
   
-  // Vertical align whole sheet
+  // Vertical align middle for the whole sheet
   monthlySheet.getRange(1, 1, monthlySheet.getMaxRows(), monthlySheet.getMaxColumns()).setVerticalAlignment('middle');
   
   // Wrap Text whole sheet
