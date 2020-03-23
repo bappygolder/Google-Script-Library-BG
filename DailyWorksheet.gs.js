@@ -7,6 +7,7 @@ To Do:
 2. Check date in last created section, and create section for all dates till now. DONE
 3. Add protection and release protection on task columns. DONE
 4. Vertical align, wrap text and insert sheet at beginning (left side). DONE
+5. Hide Timestamp columns. DONE
 
 Implimentation Note:
 - Remove the .js extension when importing within Google as a script or simply copy and paste the file. 
@@ -29,7 +30,7 @@ function onOpen(e) {
     monthlySheet = ss.insertSheet(sheetName, 0); // Create new sheet if doesn't exists
   } 
   
-  // Vertical align middle for the whole sheet
+  // Vertical align whole sheet
   monthlySheet.getRange(1, 1, monthlySheet.getMaxRows(), monthlySheet.getMaxColumns()).setVerticalAlignment('middle');
   
   // Wrap Text whole sheet
@@ -121,6 +122,7 @@ function onOpen(e) {
           monthlySheet.getRange(headerRow, dateCounter+1).setBackground(backgroundColor);
           monthlySheet.getRange(headerRow, dateCounter+1).setHorizontalAlignment("center");
           monthlySheet.getRange(headerRow, dateCounter+1).setVerticalAlignment("center");
+          monthlySheet.hideColumns(dateCounter+1); // Hide column
           monthlySheet.getRange(headerRow, dateCounter+2).setValue(updatedColumnTitle);
           monthlySheet.setColumnWidth(dateCounter+2, updatedColumnWidth);
           monthlySheet.getRange(headerRow, dateCounter+2).setFontSize(fontSize);
@@ -129,6 +131,7 @@ function onOpen(e) {
           monthlySheet.getRange(headerRow, dateCounter+2).setBackground(backgroundColor);
           monthlySheet.getRange(headerRow, dateCounter+2).setHorizontalAlignment("center");
           monthlySheet.getRange(headerRow, dateCounter+2).setVerticalAlignment("center");
+          monthlySheet.hideColumns(dateCounter+2); // Hide column
           monthlySheet.getRange(headerRow, dateCounter, monthlySheet.getMaxRows(), 3).setBorder(false, true, false, true, false, false, null, null);
           if (dateCounter == 1) { monthlySheet.setFrozenRows(1); }
           if (newDayColumnTitle == dayColumnTitle) { Logger.log("EXIT 3"); break; }
