@@ -98,12 +98,14 @@ function onEdit(e) {
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+1).setWrap(true);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+1).setFontFamily(fontFamily);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+1).setFontColor(color);
+        monthlySheet.hideColumns(activeCell.getColumn()+1); // Hide column
       } else {
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+2).setValue(timeStamp);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+2).setFontSize(fontSize);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+2).setWrap(true);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+2).setFontFamily(fontFamily);
         monthlySheet.getRange(activeCell.getRowIndex(), activeCell.getColumn()+2).setFontColor(color);
+        monthlySheet.hideColumns(activeCell.getColumn()+2); // Hide column
       }  
     }
   }
